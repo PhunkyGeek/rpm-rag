@@ -29,7 +29,6 @@ yarn-error.log*
 .env*.local
 
 #Sensitive File
-load.ipynb
 gen-lang-client-0528236136-f2047763a8b6.json
 
 # vercel
