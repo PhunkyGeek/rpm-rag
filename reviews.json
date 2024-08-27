@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Sarah Thompson",
+        "subject": "Biology",
+        "stars": 4,
+        "review": "Engaging lectures and fair grading. Highly recommended for intro biology courses."
+      },
+      {
+        "professor": "Prof. Michael Chen",
+        "subject": "Computer Science",
+        "stars": 5,
+        "review": "Excellent instructor who explains complex concepts clearly. Always available for office hours."
+      },
+      {
+        "professor": "Dr. Emily Rodriguez",
+        "subject": "Psychology",
+        "stars": 3,
+        "review": "Knowledgeable but sometimes disorganized. Assignments can be unclear."
+      },
+      {
+        "professor": "Prof. David Smith",
+        "subject": "History",
+        "stars": 4,
+        "review": "Passionate about the subject. Makes historical events come alive in class."
+      },
+      {
+        "professor": "Dr. Lisa Johnson",
+        "subject": "Chemistry",
+        "stars": 5,
+        "review": "Tough but fair. Her classes prepare you well for advanced chemistry courses."
+      },
+      {
+        "professor": "Prof. Robert Brown",
+        "subject": "Mathematics",
+        "stars": 2,
+        "review": "Moves too quickly through material. Not very approachable for questions."
+      },
+      {
+        "professor": "Dr. Amanda Lee",
+        "subject": "English Literature",
+        "stars": 4,
+        "review": "Insightful analysis of texts. Encourages thoughtful class discussions."
+      },
+      {
+        "professor": "Prof. James Wilson",
+        "subject": "Physics",
+        "stars": 3,
+        "review": "Knowledgeable but lectures can be dry. Good problem sets for practice."
+      },
+      {
+        "professor": "Dr. Maria Garcia",
+        "subject": "Sociology",
+        "stars": 5,
+        "review": "Engaging lecturer who relates course material to current events. Very inspiring."
+      },
+      {
+        "professor": "Prof. Thomas Anderson",
+        "subject": "Philosophy",
+        "stars": 4,
+        "review": "Challenges students to think critically. Assignments are thought-provoking."
+      },
+      {
+        "professor": "Dr. Jennifer White",
+        "subject": "Economics",
+        "stars": 3,
+        "review": "Solid grasp of the subject but can be inflexible with deadlines."
+      },
+      {
+        "professor": "Prof. William Taylor",
+        "subject": "Political Science",
+        "stars": 5,
+        "review": "Brilliant lecturer who brings complex political theories to life."
+      },
+      {
+        "professor": "Dr. Olivia Martinez",
+        "subject": "Art History",
+        "stars": 4,
+        "review": "Passionate about art. Field trips to museums greatly enhance the learning experience."
+      },
+      {
+        "professor": "Prof. Christopher Lee",
+        "subject": "Engineering",
+        "stars": 2,
+        "review": "Struggles to explain concepts clearly. Tests are much harder than homework."
+      },
+      {
+        "professor": "Dr. Rachel Green",
+        "subject": "Environmental Science",
+        "stars": 5,
+        "review": "Inspiring educator who makes you care about environmental issues."
+      },
+      {
+        "professor": "Prof. Daniel Kim",
+        "subject": "Music Theory",
+        "stars": 4,
+        "review": "Patient instructor who breaks down complex musical concepts well."
+      },
+      {
+        "professor": "Dr. Laura Adams",
+        "subject": "Anthropology",
+        "stars": 3,
+        "review": "Interesting material but grading can be inconsistent."
+      },
+      {
+        "professor": "Prof. Mark Johnson",
+        "subject": "Business Administration",
+        "stars": 4,
+        "review": "Brings real-world experience to the classroom. Practical assignments."
+      },
+      {
+        "professor": "Dr. Sophia Patel",
+        "subject": "Linguistics",
+        "stars": 5,
+        "review": "Fascinating lectures on language structure and evolution. Highly recommended."
+      },
+      {
+        "professor": "Prof. Alexander Wright",
+        "subject": "Theater Arts",
+        "stars": 3,
+        "review": "Knowledgeable about theater history but could improve on directing feedback."
+      }
+    ]
+  }
