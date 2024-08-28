@@ -9,6 +9,7 @@ import {
   CssBaseline,
   Switch,
   FormControlLabel,
+  useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -91,6 +92,8 @@ export default function Home() {
     setDarkMode(!darkMode);
   };
 
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -116,11 +119,12 @@ export default function Home() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        p={isMobile ? 2 : 3}
       >
         <Stack
           direction="column"
-          width="500px"
-          height="700px"
+          width={isMobile ? "100%" : "500px"}
+          height={isMobile ? "100%" : "700px"}
           border="1px solid black"
           p={2}
           spacing={3}
@@ -167,6 +171,7 @@ export default function Home() {
               onChange={(e) => {
                 setMessage(e.target.value);
               }}
+              size={isMobile ? "small" : "medium"}
             />
             <Button
               variant="contained"
@@ -174,8 +179,9 @@ export default function Home() {
               style={{
                 backgroundColor:
                   theme.palette.mode === "dark" ? "purple" : "black",
-                color: theme.palette.mode === "dark" ? "white" : "white",
+                color: "white",
               }}
+              size={isMobile ? "small" : "large"}
             >
               Send
             </Button>

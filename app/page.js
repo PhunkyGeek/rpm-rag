@@ -9,11 +9,11 @@ import {
 import { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const [darkMode, setDarkMode] = useState(false);
-  const router = useRouter(); // Initialize the useRouter hook
+  const router = useRouter();
 
   const theme = createTheme({
     palette: {
