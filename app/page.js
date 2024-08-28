@@ -1,96 +1,106 @@
-"use client"
-import { Box, Button, Stack, TextField } from "@mui/material";
-import Image from "next/image";
+"use client";
+import {
+  Box,
+  Button,
+  Typography,
+  Switch,
+  FormControlLabel,
+} from "@mui/material";
 import { useState } from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Image from "next/image";
+import { useRouter } from "next/navigation"; // Import useRouter
 
-export default function Home() {
-  const [messages, setMessages] = useState([
-    {
-      role: "assistant",
-      content: "Hi! I'm the Rate My Professor assistant. How can I help you today?"
-    }
-  ])
-  const [message, setMessage] = useState('')
-  const sendMessage = async () => {
-    
-    setMessages((messages) => [
-      ...messages,
-      { role: "user", content: message },
-      { role: "assistant", content: '' }
-    ]);
-  
-    try {
-      const response = await fetch('/api/chat', {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify([...messages, { role: 'user', content: message }])
-      });
-  
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-  
-      let result = '';
-  
-      const processText = async ({ done, value }) => {
-        if (done) {
-          
-          setMessages((messages) => {
-            const updatedMessages = [...messages];
-            updatedMessages[updatedMessages.length - 1] = {
-              ...updatedMessages[updatedMessages.length - 1],
-              content: result
-            };
-            return updatedMessages;
-          });
-          return;
-        }
-  
-        const text = decoder.decode(value || new Uint8Array(), { stream: true });
-        result += text;
-  
-        setMessages((messages) => {
-          const updatedMessages = [...messages];
-          updatedMessages[updatedMessages.length - 1] = {
-            ...updatedMessages[updatedMessages.length - 1],
-            content: result
-          };
-          return updatedMessages;
-        });
-  
-        return reader.read().then(processText);
-      };
-  
-      await reader.read().then(processText);
-  
-    } catch (error) {
-      console.error("Error fetching response:", error);
-    }
-  
-    setMessage('');
+export default function LandingPage() {
+  const [darkMode, setDarkMode] = useState(false);
+  const router = useRouter(); // Initialize the useRouter hook
+
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? "dark" : "light",
+      primary: {
+        main: darkMode ? "#9c27b0" : "#1976d2",
+      },
+      background: {
+        default: darkMode ? "#121212" : "#f5f5f5",
+      },
+      text: {
+        primary: darkMode ? "#ffffff" : "#000000",
+      },
+    },
+  });
+
+  const handleThemeChange = () => {
+    setDarkMode(!darkMode);
   };
-  
+
+  const handleGetStarted = () => {
+    router.push("/chat");
+  };
 
   return (
-    <Box width="100%" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <Stack direction="column" width="500px" height="700px" border="1px solid black" p={2} spacing={3}>
-        <Stack direction="column" spacing={2} flexGrow={1} overflow="auto" maxHeight="100%">
-        {messages.map((message, index)=>(
-          <Box key={index} display="flex" justifyContent={message.role === 'assistant' ? 'flex-start' : 'flex-end'}>
-            <Box bgcolor={message.role === 'assistant' ? 'primary.main' : 'secondary.main'} color="white" borderRadius={16} p={3}>{message.content}</Box>
-          </Box>
-        ))}
-        </Stack>
-        <Stack direction="row" spacing={2}>
-          <TextField label="Message" fullWidth value={message} onChange={(e)=>{
-            setMessage(e.target.value)
-          }}/>
-          <Button variant="contained" onClick={sendMessage}>
-            Send
-          </Button>
-        </Stack>
-      </Stack>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <Box
+        height="100vh"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        bgcolor="background.default"
+        color="text.primary"
+        p={3}
+        textAlign="center"
+      >
+        <Box position="absolute" top={20} left={20}>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={darkMode}
+                onChange={handleThemeChange}
+                style={{
+                  color: theme.palette.mode === "dark" ? "purple" : "black",
+                }}
+              />
+            }
+            label="Dark Mode"
+            style={{ marginLeft: "15px", marginTop: "10px" }}
+          />
+        </Box>
+
+        <Box mb={5}>
+          <Image
+            src={darkMode ? "/logo-dark.png" : "/logo.png"}
+            alt="Logo"
+            width={220}
+            height={150}
+          />
+        </Box>
+
+        <Box mb={8}>
+          <Typography mb={6} fontbold variant="h3" gutterBottom>
+            Welcome to Instructor Intel
+          </Typography>
+          <Typography variant="h5" paragraph>
+            Want to know more about your professors? Ask our intelligent AI
+            assistant.
+          </Typography>
+        </Box>
+
+        <Button
+          variant="contained"
+          size="large"
+          color="secondary"
+          onClick={handleGetStarted}
+          style={{
+            backgroundColor: darkMode ? "#9c27b0" : "black",
+            color: "#ffffff",
+            width: "220px",
+            height: "60px",
+          }}
+        >
+          Get Started
+        </Button>
+      </Box>
+    </ThemeProvider>
   );
 }
