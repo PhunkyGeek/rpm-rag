@@ -114,7 +114,7 @@ export default function Home() {
       </Box>
       <Box
         width="100%"
-        height="100vh"
+        height="110vh"
         display="flex"
         flexDirection="column"
         justifyContent="center"
@@ -124,7 +124,7 @@ export default function Home() {
         <Stack
           direction="column"
           width={isMobile ? "100%" : "500px"}
-          height={isMobile ? "100%" : "700px"}
+          height={isMobile ? "90vh" : "700px"}
           border="1px solid black"
           p={2}
           spacing={3}
